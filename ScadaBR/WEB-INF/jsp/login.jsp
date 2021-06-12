@@ -74,14 +74,16 @@
 			if (document.hidden)
 				setTimeout(hideAutoplayWarning, 2000);
 			else
-				$("autoplayDisabled").style.display = "none";
+				setTimeout(function() {
+					$("autoplayDisabled").style.display = "none";
+				}, 3000);
 		}
 		
 		function detectAutoplay() {
 			canAutoplay.audio().then(({result}) => {
 				if (result === false) {
 					$("autoplayDisabled").style.display = "";
-					setTimeout(hideAutoplayWarning, 6000);
+					setTimeout(hideAutoplayWarning, 4000);
 				}
 			});
 		}
@@ -276,7 +278,7 @@
 				<!-- Username field -->	
 				<spring:bind path="login.username">
 					<label for="username"><fmt:message key="login.userId"/></label>
-					<input id="username" type="text" name="username" value="${status.value}" maxlength="40" autofocus>
+					<input id="username" type="text" name="username" value="${fn:escapeXml(status.value)}" maxlength="40" autofocus>
 					<c:if test="${status.error}">
 						<span class="errorMessage">${status.errorMessage}</span>
 					</c:if>
@@ -286,7 +288,7 @@
 				<spring:bind path="login.password">
 					<label for="password"><fmt:message key="login.password"/></label>
 					<div id="pswDiv">
-						<input id="password" type="password" name="password" value="${status.value}" maxlength="25"/>
+						<input id="password" type="password" name="password" value="${fn:escapeXml(status.value)}" maxlength="25"/>
 						<img id="pswBtn" src="images/show-password.svg" onclick="togglePassword();" onerror="usePng(this);">
 					</div>
 					<c:if test="${status.error}">
