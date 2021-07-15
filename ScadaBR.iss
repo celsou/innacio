@@ -13,7 +13,7 @@
 AppId={{0E856116-C05F-4AEB-A24A-19B20DFE407A}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-AppVerName=ScadaBR-EF, release 2
+AppVerName=ScadaBR-EF, release 3
 AppComments=Open-source SCADA software
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisherURL={#MyAppURL}

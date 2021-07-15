@@ -193,7 +193,7 @@ public final class Room {
                     TIMER_DELAY, TIMER_DELAY);
         }
 
-        // Send him the current number of players and the current room image.
+        // Send the current number of players and the current room image.
         String content = String.valueOf(players.size());
         p.sendRoomMessage(MessageType.IMAGE_MESSAGE, content);
 
@@ -315,8 +315,9 @@ public final class Room {
 
                     String s = String.valueOf(p.getLastReceivedMessageId())
                             + "," + msg.toString();
-                    if (i > 0)
+                    if (i > 0) {
                         sb.append("|");
+                    }
 
                     sb.append(s);
                 }
